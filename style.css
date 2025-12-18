@@ -1,0 +1,199 @@
+:root {
+    --bg-main: #0b0f1a;
+    --bg-card: #12182b;
+    --blue: #3b82f6;
+    --blue-light: #60a5fa;
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #000;
+    border-bottom: 1px solid #1f2933;
+}
+
+nav h1 {
+    color: var(--blue);
+    font-size: 22px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+/* Navbar link hover effect with underline animation */
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    position: relative; /* Needed for pseudo-element */
+    transition: all 0.3s ease;
+}
+    
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -3px;
+    background-color: var(--blue);
+    transition: width 0.3s ease;
+}
+    
+nav a:hover {
+    color: var(--blue);
+    transform: scale(1.1);
+}
+    
+nav a:hover::after {
+    width: 100%; /* Expand the underline on hover */
+}
+
+/* ===== HERO ===== */
+.hero {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero span {
+    color: var(--blue);
+}
+
+.hero p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ===== SECTION ===== */
+section {
+    padding: 60px 10%;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    border-left: 4px solid var(--blue);
+padding-left: 10px;
+}
+
+/* ===== ABOUT ===== */
+.about {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.skill-box {
+    background-color: var(--bg-card);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--blue-light);
+    font-size: 14px;
+}
+
+/* ===== PORTFOLIO ===== */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.project-card h3 {
+    color: var(--blue-light);
+    margin-bottom: 5px;
+}
+
+.project-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ===== CONTACT ===== */
+.contact {
+    max-width: 500px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none;
+    background-color: #020617;
+    color: var(--text-main);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--blue);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--blue-light);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* Hover effect for About, Skills, Projects, and Contact */
+.about:hover,
+.skill-box:hover,
+.project-card:hover{
+  transform: scale(1.05); /* Slightly enlarge */
+  background-color: var(--blue); /* Change background to blue */
+  color: white; /* Text color becomes white for contrast */
+  transition: all 0.3s ease; /* Smooth animation */
+}
