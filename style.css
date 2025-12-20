@@ -195,13 +195,6 @@ nav a:hover::after {
     }
 }
 
-#about {
-    position: relative;
-    padding: 60px 20px;
-    color: white;
-    text-align: left;
-}
-
 /* Basic body styling */
 body {
     margin: 0;
@@ -210,13 +203,21 @@ body {
     color: white;
 }
 
-/* Center section */
 #about {
+    position: relative;
+    color: white;
+    text-align: left;
     display: flex;
+    flex-direction: column; /* Stacks title on top of picture */
     justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
+    align-items: center;    /* Centers the picture horizontally */
+    padding: 60px 20px;      /* This matches the side margins of your other sections */
 }
+#about .section-title{
+    border-left: none;
+    color: var(--text-main);
+}
+
 
 /* Container for image + overlay */
 .about {
@@ -225,6 +226,17 @@ body {
     height: 150px;
     cursor: pointer;
 }
+
+/* Disable interaction with other cards when one is hovered */
+.about-container:has(.about:hover) .about {
+    pointer-events: none;
+}
+
+/* Re-enable interaction for the hovered card */
+.about-container:has(.about:hover) .about:hover {
+    pointer-events: auto;
+}
+
 
 /* Small thumbnail image */
 .about-image {
@@ -297,6 +309,31 @@ body {
     opacity: 1;
 }
 
+/* Container holding 3 about items */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: nowrap; /* keeps it horizontal */
+}
+
+
+/* Wrapper for title + image */
+.about-card {
+    text-align: center;
+}
+
+/* Text above image */
+.about-label {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: var(--blue-light);
+    letter-spacing: 1px;
+}
+
+
 
 /* ===== SECTIONS ===== */
 section {
@@ -304,8 +341,8 @@ section {
 }
 
 .section-title {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 25px;
+    margin-bottom: 25px;
     border-left: 4px solid var(--blue);
     padding-left: 12px;
 }
@@ -320,7 +357,6 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about:hover,
 .skill-box:hover,
 .project-card:hover {
     transform: scale(1.05);
